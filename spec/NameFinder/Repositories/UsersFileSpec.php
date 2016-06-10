@@ -11,9 +11,19 @@ use Prophecy\Argument;
 
 class UsersFileSpec extends ObjectBehavior
 {
-    function let(ReaderInterface $reader)
+    function it_is_initializable(ReaderInterface $reader)
     {
-        $reader->toArray()->willReturn([
+        $this->beConstructedWith($reader);
+        
+        $this->shouldHaveType(UsersFile::class);
+        $this->shouldImplement(UsersInterface::class);
+    }
+
+    function it_returns_an_array_of_all_users(ReaderInterface $reader)
+    {
+
+        $reader->loadAll()->willReturn($reader);
+        $reader->getLoaded()->willReturn([
             'Timmy Tester',
             'Elena Example',
             'Hyphened Last-Names',
@@ -21,16 +31,7 @@ class UsersFileSpec extends ObjectBehavior
             'Larry Less'
         ]);
         $this->beConstructedWith($reader);
-    }
 
-    function it_is_initializable()
-    {
-        $this->shouldHaveType(UsersFile::class);
-        $this->shouldImplement(UsersInterface::class);
-    }
-
-    function it_returns_an_array_of_all_users()
-    {
         $this->getAll()->shouldHaveCount(5);
     }
 }

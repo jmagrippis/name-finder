@@ -32,6 +32,6 @@ class UsersFile implements UsersInterface
                 'full_name' => $userData,
                 'last_name' => substr($userData, strpos($userData, ' ') + 1)
             ]);
-        }, $this->reader->toArray());
+        }, $this->reader->getLoaded());
     }
 }
