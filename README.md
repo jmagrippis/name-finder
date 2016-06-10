@@ -21,6 +21,9 @@ Built using BDD, you may run the test suite with `bin/phpspec`.
 
 - [phpspec] for BDD-style unit-testing.
 
+- [Travis CI] for Continuous Integration.
+
 [Slim]: http://www.slimframework.com/ "A micro framework for PHP"
 [Composer]: https://getcomposer.org/ "Dependency Manager for PHP"
 [phpspec]: http://www.phpspec.net/en/stable/ "A php toolset to drive emergent design by specification"
+[Travis CI]: https://travis-ci.org/ "Test and Deploy with Confidence"

@@ -1,0 +1,7 @@
+language: php
+php:
+  - '7.0'
+install:
+  - composer install -o --no-interaction
+script:
+  - vendor/bin/phpspec run -v
