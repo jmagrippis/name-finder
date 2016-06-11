@@ -31,4 +31,22 @@ class UserSpec extends ObjectBehavior
             'last_name' => 'Tester'
         ]);
     }
+
+    function it_returns_its_first_name()
+    {
+        $this->beConstructedWith(['first_name' => 'Timmy', 'last_name' => 'Tester', 'full_name' => 'Timmy Tester']);
+        $this->getFirstName()->shouldBe('Timmy');
+    }
+
+    function it_returns_its_last_name()
+    {
+        $this->beConstructedWith(['first_name' => 'Timmy', 'last_name' => 'Tester', 'full_name' => 'Timmy Tester']);
+        $this->getLastName()->shouldBe('Tester');
+    }
+
+    function it_returns_its_full_name()
+    {
+        $this->beConstructedWith(['first_name' => 'Timmy', 'last_name' => 'Tester', 'full_name' => 'Timmy Tester']);
+        $this->getFullName()->shouldBe('Timmy Tester');
+    }
 }

@@ -35,12 +35,40 @@ class User implements \JsonSerializable
     }
 
     /**
+     * Direct getter for the User's first name
+     *
+     * @return string
+     */
+    public function getFirstName(): string
+    {
+        return isset($this->arr_properties['first_name']) ? $this->arr_properties['first_name'] : '';
+    }
+
+    /**
+     * Direct getter for the User's last name
+     *
+     * @return string
+     */
+    public function getLastName(): string
+    {
+        return isset($this->arr_properties['last_name']) ? $this->arr_properties['last_name'] : '';
+    }
+
+    /**
+     * Direct getter for the User's full name
+     *
+     * @return string
+     */
+    public function getFullName(): string
+    {
+        return isset($this->arr_properties['full_name']) ? $this->arr_properties['full_name'] : '';
+    }
+
+    /**
      * Returns an array of its serializable values
      */
     public function jsonSerialize(): array
     {
         return $this->arr_properties;
     }
-
-
 }
