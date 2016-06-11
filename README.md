@@ -48,6 +48,9 @@ http://localhost:8080/api/v1/users/search/penelope?dupes=false // explicitly doe
 
 Built using BDD, you may run the modest test suite with `vendor/bin/phpspec run`. Make sure you have `composer install -o`d the dev dependencies as well!
 
+Provided you have the server running on localhost:8080, you may also run the [Codeception] suite with `vendor/bin/codecept run`.
+
+
 ## Tech used
 
 - [Composer] for care-free dependency management.
@@ -56,13 +59,11 @@ Built using BDD, you may run the modest test suite with `vendor/bin/phpspec run`
 
 - [Phpspec] for BDD-style unit-testing.
 
+- [Codeception] For acceptance testing of the API endpoints.
+
 - [Travis CI] for Continuous Integration.
 
 - [Docker] for consistent environments and easy deployment.
-
-## Wishlist
-
-- [Codeception]
 
 [Slim]: http://www.slimframework.com/ "A micro framework for PHP"
 [Composer]: https://getcomposer.org/ "Dependency Manager for PHP"
