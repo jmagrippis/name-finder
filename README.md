@@ -1,5 +1,8 @@
 # Name Finder
 
+[![Build Status](https://travis-ci.org/jmagrippis/name-finder.svg?branch=master)](https://travis-ci.org/jmagrippis/name-finder)
+[![License](https://poser.pugx.org/laravel/framework/license.svg)](./LICENSE)
+
 A simple app to demonstrate [Slim] and some php fundamentals.
 
 ## Setup
