@@ -1,20 +1,20 @@
 <?php
-use \Psr\Http\Message\ServerRequestInterface as Request;
-use Slim\Http\Response as Response;
+use NameFinder\Readers;
+use NameFinder\Repositories\UsersFile as UsersRepository;
 
 require '../vendor/autoload.php';
 
-$usersRepository = new \NameFinder\Repositories\UsersFile(
-    new \NameFinder\Readers\File(__DIR__ . '/../resources/users.txt')
-);
-$app = new \Slim\App;
-$app->group('/api/v1', function () use ($usersRepository) {
-    $this->get('/users/search/{match}', function (Request $request, Response $response) use ($usersRepository) {
-        $params = $request->getQueryParams();
-        $showDupes = array_key_exists('dupes', $params) && $params['dupes'] != '0' && $params['dupes'] != 'false';
-        return $response->withJson([
-            'users' => $usersRepository->getMatching($request->getAttribute('match'), $showDupes)
-        ]);
-    });
+$container = new \Slim\Container;
+
+$container['usersService'] = function ($c) {
+    return new UsersRepository(
+        new Readers\File(__DIR__ . '/../resources/users.txt')
+    );
+};
+
+$app = new \Slim\App($container);
+$usersRepository = '';
+$app->group('/api/v1', function () {
+    $this->get('/users/search/{match}', '\NameFinder\Controllers\Users:search');
 });
 $app->run();
